@@ -1,8 +1,8 @@
-# shell介绍
+# 第一章 shell介绍
 
 ## 1.shell
 
-Shell 是指一种应用程序，由 C 语言编写，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核(Kernel)的服务。
+Shell 是指一种应用程序，俗称壳（用来区别于核），由 C 语言编写，它接收用户输入的命令，然后调用其他程序相应的程序。Shell 既是一种命令语言，又是一种程序设计语言。
 
 
 
@@ -10,7 +10,15 @@ Shell 是指一种应用程序，由 C 语言编写，这个应用程序提供�
 
 
 
-## 2.Shell 脚本
+## 2.Shell 命令
+
+shell设计了一些命令，我们将这些命令通过终端发送给它，它就会做出一些动作并把执行结果返回给我们。
+
+![image-20230818105110380](assets/image-20230818105110380.png)
+
+
+
+## 3.Shell 脚本
 
 Shell 脚本（shell script），是一种为 shell 编写的脚本程序。
 
@@ -20,7 +28,7 @@ Shell 脚本（shell script），是一种为 shell 编写的脚本程序。
 
 
 
-## 3.Shell 的种类
+## 4.Shell 的种类
 
 - Bourne Shell（/usr/bin/sh或/bin/sh）
 - Bourne Again Shell（/bin/bash）
@@ -28,15 +36,15 @@ Shell 脚本（shell script），是一种为 shell 编写的脚本程序。
 
 可以通过 
 
-**cat /etc/shells** 命令来查看系统的shell种类
+**cat /etc/shells** 命令来查看系统的shell种类。
 
-**echo $SHELL** 命令来查看当前使用的shell
+**echo $SHELL** 命令来查看当前使用的shell，如图所示我们当前使用的shell是bash，那么输入的所有命令都是由bash处理的。
 
 ![image-20230817110032065](assets/image-20230817110032065.png)
 
 
 
-## 4.shell 的历史
+## 5.shell 的历史
 
 ![img](assets/webp.webp)
 
@@ -86,15 +94,111 @@ Ash（主要是 Dash 分支）在嵌入式 Linux 系统上也很流行。 Dash �
 
 
 
+# 第二章 走进shell
+
+## 1.扩展阅读
+
+今天的个人计算机包含了主机、键盘和显示器，但是计算机最初不是这个样子的。
+
+终端
 
 
 
+终端 tty (Teleprinter)
+
+ https://zhuanlan.zhihu.com/p/108206742
+
+http://www.linusakesson.net/programming/tty/
+
+https://zhuanlan.zhihu.com/p/53300998
+
+https://www.zhihu.com/question/21711307
+
+https://zhuanlan.zhihu.com/p/608891209
+
+伪终端 pty (Pseudo Terminal)
+
+https://zhuanlan.zhihu.com/p/42771810
+
+https://unix.stackexchange.com/questions/4126/what-is-the-exact-difference-between-a-terminal-a-shell-a-tty-and-a-con
 
 
 
+## 2.进入命令行
+
+在图形化桌面出现之前，与Unix系统进行交互的唯一方式就是借助由shell所提供的文本命令行界面（command line interface，CLI）。
+
+CLI只能接受文本输入，也只能显示出文本和基本的图形输出。
+
+### 1.控制台终端
+
+打开服务器版本的Linux，就会进入文本模式。这样在显示器上就只有一个简单的shell CLI。这种模式称作Linux控制台，因为它仿真了早期的硬接线控制台终端。
 
 
 
+![image-20230818141454529](assets/image-20230818141454529.png)
+
+
+
+### 2.图形化终端
+
+在桌面版Linux中的，有很多的终端仿真包。终端仿真包会在一个桌面图形化窗口中模拟控制台终端的使用。
+
+​																													GNOME Terminal
+
+![image-20230818142139341](assets/image-20230818142139341.png)
+
+
+
+​																															Konsole
+
+![img](assets/v2-a06d66e351493b7abe6718a9e6bb3c5a_r.jpg)
+
+
+
+​																															rxvt 
+
+![img](assets/v2-b233448a219086a651724ff0b0758ba5_720w.webp)
+
+还有很多其他版本的图像化终端。
+
+
+
+# 第三章 基本的bash shell命令
+
+## 1.启动 shell
+
+bash shell能提供对Linux系统的交互式访问。它是作为普通程序运行的，通常是在用户登录终端时启动。
+
+前面说到shell有很多种，登录时系统启动了那种shell依赖于用户账户的配置。
+
+/etc/passwd文件包含了所有系统用户账户列表以及每个用户的基本配置信息。
+
+![image-20230818145044293](assets/image-20230818145044293.png)
+
+## 2.bash手册
+
+man命令用来访问存储在Linux系统上的手册页面。
+
+```shell
+man ls
+```
+
+![image-20230818150210856](assets/image-20230818150210856.png)
+
+```shell
+man echo
+```
+
+![image-20230818150529060](assets/image-20230818150529060.png)
+
+man本身也有说明
+
+```shell
+man man
+```
+
+![image-20230818150406303](assets/image-20230818150406303.png)
 
 
 
